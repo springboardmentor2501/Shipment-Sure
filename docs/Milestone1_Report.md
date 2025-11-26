@@ -29,6 +29,8 @@ This milestone ensures the data is consistent, accurate, and reliable for analys
 - order_quantity, unit_price, total_order_value
 - on_time_delivery (target variable)
 
+<img width="2710" height="1037" alt="Dataset-Understanding" src="https://github.com/user-attachments/assets/6079c9a9-eefa-4336-95c7-5ac3f78e9b6d" />
+
 ## 🟦 3. Anomaly Generation (add_anomalies.py)
 
 To simulate real-world supply chain issues, multiple anomalies were added intentionally.
@@ -39,7 +41,7 @@ Random NaN values in:
 
 - supplier_rating
 - order_quantity
-- other key columns
+- other key columns  
 
 ### ✔ Added Duplicate Rows
 
@@ -65,6 +67,8 @@ Random NaN values in:
 ### 📄 Output File:
 
 simple_anomalies_dataset.xlsx
+
+<img width="2735" height="1111" alt="Anomaly-Generation" src="https://github.com/user-attachments/assets/bc060696-2c52-4abb-8356-be1808a70acc" />
 
 ## 🟦 4. Anomaly Cleaning (clean_anomalies.py)
 
@@ -103,6 +107,8 @@ were removed
 
 simple_cleaned_dataset.xlsx
 
+<img width="2816" height="760" alt="Anomaly-Cleaning" src="https://github.com/user-attachments/assets/29b37094-9dac-4fc6-bfde-cfcad6f8d926" />
+
 ## 🟦 5. Validation of Cleaning
 
 Proper before/after comparisons were performed:
@@ -131,6 +137,8 @@ Proper before/after comparisons were performed:
 
 - Extreme values replaced with upper IQR limit
 - Dataset is now fully ready for EDA (Milestone 2).
+
+<img width="2816" height="1202" alt="Validation-of-Cleaning" src="https://github.com/user-attachments/assets/53296eec-6c66-4b8d-a024-c116f4159f69" />
 
 ## 🟦 6. Deliverables for Milestone 1
 | Deliverable | Status |
