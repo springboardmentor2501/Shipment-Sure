@@ -58,6 +58,8 @@ sns.heatmap(df.corr(), annot=False, cmap='Blues')
 - Long-distance shipments show higher risk of late delivery.
 - Some shipment modes (e.g., Air) had better on-time performance.
 
+<img width="2816" height="925" alt="Exploratory-Data-Analysis" src="https://github.com/user-attachments/assets/0ebcb125-1366-42ed-90bb-8a058d416613" />
+
 ## 🟦 3. Preprocessing
 
 To prepare for ML model building, key preprocessing steps were applied.
@@ -95,6 +97,8 @@ Normalized numerical columns using StandardScaler:
 
 This prepares the dataset for ML model training in Milestone 3.
 
+<img width="2816" height="898" alt="Scaling-Numerical-Features" src="https://github.com/user-attachments/assets/46784876-9ae1-4526-8e93-d697b40972fb" />
+
 ## 🟦 4. Feature Engineering
 
 Created additional meaningful features to enhance model accuracy.
@@ -127,6 +131,8 @@ df['high_rating'] = (df['supplier_rating'] >= 4).astype(int)
 ```
 
 These features help ML models capture delivery behavior more accurately.
+
+<img width="2816" height="1224" alt="Delivery-Speed-Category" src="https://github.com/user-attachments/assets/fd7c418c-1793-4401-8213-da7231e06953" />
 
 ## 🟦 5. Saving the Final Processed Dataset
 
