@@ -71,7 +71,7 @@ The training process involved:
 - Fitting the model on the training dataset
 - Generating predictions on the test dataset
 - Evaluating model metrics
-<img width="2816" height="1289" alt="Gemini_Generated_Image_6hcohu6hcohu6hco" src="https://github.com/user-attachments/assets/481a4c7f-13fb-4ebf-a1f6-7eb6224482ac" />
+<img width="2816" height="1289" alt="Model-Training-Process" src="https://github.com/user-attachments/assets/481a4c7f-13fb-4ebf-a1f6-7eb6224482ac" />
 
 ## 🟦 6. Evaluation Metrics
 
@@ -102,7 +102,7 @@ Breakdown of correct vs incorrect predictions.
 Ability to separate on-time vs delayed shipments.
 
 These metrics together provide a complete picture of model performance.
-![Uploading Gemini_Generated_Image_6hcohu6hcohu6hco.png…]()
+<img width="2816" height="1090" alt="Evaluation-Metrics" src="https://github.com/user-attachments/assets/3e13e212-1f6a-4fba-b380-8c65341cfb43" />
 
 ## 🟦 7. Model Comparison (Summary Table)
 | Model | Accuracy | Precision | Recall | F1 Score | Notes |
