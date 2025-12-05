@@ -55,6 +55,7 @@ Prediction (On time / Delayed)
 ↓
 Display Result on UI
 ```
+<img width="2719" height="875" alt="Application Workflow" src="https://github.com/user-attachments/assets/91f79e9e-3561-4146-8283-49aa2e3859d9" />
 
 ## 🟦 6. Streamlit App Structure
 
@@ -91,7 +92,7 @@ Inside it:
 <img width="1905" height="957" alt="Prediction-page-output" src="https://github.com/user-attachments/assets/b2a528eb-af78-437d-8393-63f28b326b0d" />
 ### ✔ Probability Score
 
-- shows confidence of prediction (0–1)
+- shows confidence of prediction (0–100%)
 
 ### ✔ Clean & simple UI
 
