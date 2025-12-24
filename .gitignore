@@ -1,6 +1,18 @@
+# pyhton cache
 .venv/
 __pycache__/
 *.pyc
+*.pyhton
+*.pyd
+
+.venv/
+venv/
+ 
+ .streamlit/
+
+ .DS_store
+ Thumbs.db
+ 
 .env
 .ipynb_checkpoints/
 *.code-workspace
