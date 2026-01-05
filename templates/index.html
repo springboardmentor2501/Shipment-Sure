@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shipment On-Time Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>🚚 Shipment On-Time Delivery Predictor</h2>
+    <p class="subtitle">Enter shipment details to predict delivery reliability</p>
+
+    <form action="/predict" method="POST">
+        <div class="form-grid">
+
+            <!-- ================= Supplier ================= -->
+            <h3>Supplier Information</h3>
+
+            <div>
+                <label>Supplier Rating (0–5)</label>
+                <input type="number" name="supplier_rating" step="0.1" min="0" max="5" required>
+            </div>
+
+            <div>
+                <label>Supplier Lead Time (days)</label>
+                <input type="number" name="supplier_lead_time" min="1" required>
+            </div>
+
+            <div>
+                <label>Previous On-Time Rate (0–1)</label>
+                <input type="number" name="previous_on_time_rate" step="0.01" min="0" max="1" required>
+            </div>
+
+            <div>
+                <label>Supplier Total Past Orders</label>
+                <input type="number" name="supplier_total_orders" min="1" required>
+            </div>
+
+            <!-- ================= Shipment ================= -->
+            <h3>Shipment Details</h3>
+
+            <div>
+                <label>Shipping Distance (km)</label>
+                <input type="number" name="shipping_distance_km" step="0.1" min="1" required>
+            </div>
+
+            <div>
+                <label>Order Quantity</label>
+                <input type="number" name="order_quantity" min="1" required>
+            </div>
+
+            <div>
+                <label>Unit Price</label>
+                <input type="number" name="unit_price" step="0.1" min="1" required>
+            </div>
+
+            <div>
+                <label>Total Order Value</label>
+                <input type="number" name="order_value" step="0.1" min="1" required>
+            </div>
+
+            <!-- ================= Carrier ================= -->
+            <h3>Carrier & Route</h3>
+
+            <div>
+                <label>Carrier Average Delay (days)</label>
+                <input type="number" name="carrier_avg_delay" step="0.1" min="0" required>
+            </div>
+
+            <div>
+                <label>Region Difficulty Score</label>
+                <select name="region_difficulty_score" required>
+                    <option value="">Select Region Risk</option>
+                    <option value="2">Low (Easy Route)</option>
+                    <option value="5">Medium</option>
+                    <option value="8">High (Difficult Route)</option>
+                </select>
+            </div>
+
+            <!-- ================= Dates ================= -->
+            <h3>Dates</h3>
+
+            <div>
+                <label>Order Date</label>
+                <input type="date" name="order_date" required>
+            </div>
+
+            <div>
+                <label>Promised Delivery Date</label>
+                <input type="date" name="promised_delivery_date" required>
+            </div>
+
+            <!-- ================= Submit ================= -->
+            <button type="submit">🔍 Predict Delivery Status</button>
+
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

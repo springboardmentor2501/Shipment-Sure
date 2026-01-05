@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+
+<body class="result-page">
+
+<div class="result-card">
+    <h2>📦 Shipment Prediction Result</h2>
+
+    {% if prediction == "On-Time Delivery" %}
+        <h3 class="success">✅ {{ prediction }}</h3>
+    {% else %}
+        <h3 class="danger">❌ {{ prediction }}</h3>
+    {% endif %}
+
+    <div class="chance-box">
+        <p class="chance-label">Delivery Reliability</p>
+
+        {% if chance == "High" %}
+            <p class="chance high">🟢 High Chance</p>
+        {% elif chance == "Moderate" %}
+            <p class="chance medium">🟡 Low Chance</p>
+        {% else %}
+            <p class="chance low">🔴 Low Chance</p>
+        {% endif %}
+
+        <!-- <p class="confidence">(Model confidence: {{ probability }}%)</p> -->
+    </div>
+
+    <a href="/" class="btn">🔁 Predict Another</a>
+</div>
+
+
+
+</body>
+</html>
