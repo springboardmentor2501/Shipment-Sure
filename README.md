@@ -68,6 +68,22 @@ Copy code
 - Matplotlib
 
 ---
+## 📸 Dashboard Preview
+
+### 🔹 Dashboard Overview
+![Dashboard](screenshots/Dashboard.png)
+
+### 🔹 Shipment Input & Predict Action
+![Predict Button](screenshots/predict%20button.png)
+
+### 🔹 Prediction Output & History
+![Prediction History](screenshots/prediction%20history.png)
+
+### 🔹 Explainable AI – SHAP Analysis
+![SHAP Explainability](screenshots/Shap%20Explainability.png)
+
+### 🔹 Model Evaluation – Confusion Matrix
+![Confusion Matrix](screenshots/Confusion%20matrix.png)
 
 ## ▶️ How to Run the Project
 
