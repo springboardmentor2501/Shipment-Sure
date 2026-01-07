@@ -4,6 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 import shap
+import os
 
 # =====================================================
 # PAGE CONFIG
@@ -42,9 +43,12 @@ p, label { color: #d1d5db; }
 """, unsafe_allow_html=True)
 
 # =====================================================
-# LOAD PIPELINE
+# LOAD PIPELINE (FIXED PATH)
 # =====================================================
-pipeline = joblib.load("shipment_pipeline.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PIPELINE_PATH = os.path.join(BASE_DIR, "shipment_pipeline.pkl")
+
+pipeline = joblib.load(PIPELINE_PATH)
 preprocessor = pipeline.named_steps["preprocess"]
 model = pipeline.named_steps["model"]
 
@@ -135,7 +139,6 @@ with col_results:
         prediction = "Delayed" if delayed_prob >= 0.4 else "On-Time"
         confidence = delayed_prob if prediction == "Delayed" else ontime_prob
 
-        # Save history
         st.session_state.history.append({
             "Prediction": prediction,
             "Confidence": round(confidence, 3),
@@ -166,7 +169,7 @@ with col_results:
             st.success(f"✅ On-time delivery predicted | Confidence: {confidence:.2%}")
 
         # =================================================
-        # SHAP EXPLAINABILITY (FINAL FIX)
+        # SHAP EXPLAINABILITY
         # =================================================
         st.markdown("## 🧠 Why this prediction? (SHAP Explainability)")
 
@@ -176,15 +179,9 @@ with col_results:
         explainer = shap.TreeExplainer(model)
         shap_values = explainer.shap_values(X_transformed)
 
-        # Handle binary / single output
-        if isinstance(shap_values, list):
-            shap_vals = shap_values[-1][0]
-        else:
-            shap_vals = shap_values[0]
-
+        shap_vals = shap_values[-1][0] if isinstance(shap_values, list) else shap_values[0]
         shap_vals = np.array(shap_vals).reshape(-1)
 
-        # 🔑 ALIGN LENGTHS (CRITICAL FIX)
         min_len = min(len(feature_names), len(shap_vals))
         feature_names = feature_names[:min_len]
         shap_vals = shap_vals[:min_len]
@@ -192,10 +189,8 @@ with col_results:
         shap_df = pd.DataFrame({
             "Feature": feature_names,
             "SHAP Value": shap_vals
-        })
-
-        shap_df["abs"] = shap_df["SHAP Value"].abs()
-        shap_df = shap_df.sort_values("abs", ascending=False).head(10)
+        }).assign(abs=lambda x: x["SHAP Value"].abs()) \
+          .sort_values("abs", ascending=False).head(10)
 
         fig2, ax2 = plt.subplots(figsize=(5,4))
         ax2.barh(
@@ -224,5 +219,5 @@ with col_results:
 
 # =====================================================
 # RUN:
-# python -m streamlit run app.py
+# python -m streamlit run app/shipment_streamlit_app/app.py
 # =====================================================
