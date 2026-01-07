@@ -1,0 +1,84 @@
+Here is the updated documentation. I’ve added emojis to make it visually engaging and scannable for a GitHub README, while keeping the tone professional. I have also used your specific filenames and logic.
+
+---
+
+# 📘 Milestone 1 – Week 1–2: Data Understanding, Anomaly Generation & Data Cleaning
+
+### 🟦 1. Overview
+
+This milestone serves as the foundation of the project. We focused on auditing the dataset structure, intentionally introducing synthetic real-world anomalies, and engineering a robust cleaning pipeline to ensure the data is **consistent, accurate, and model-ready**. 🚀
+
+---
+
+### 🟦 2. Dataset Understanding 🔍
+
+Before processing, we performed a deep-dive into the raw data:
+
+* **File:** `shipment_dataset_10000.xlsx` 📂
+* **Volume:** ~10,000 rows of logistics records.
+* **Key Tasks:** * Checked schema and data types (Numeric vs. Categorical). 📊
+* Validated business logic (Order Date → Promised → Actual Delivery). 📅
+* Confirmed the initial dataset was clean to establish a baseline. ✅
+
+
+
+---
+
+### 🟦 3. Anomaly Generation (`introduce_anamolies.py`) 🛠️
+
+To simulate the "messy" data found in real-world supply chains, we artificially injected several issues:
+
+* **Missing Values:** Added random `NaN` values to `supplier_rating` and `order_quantity`. 🚫
+* **Duplicate Rows:** Inserted clones to mimic data merging glitches. 👯
+* **Datatype Errors:** Placed strings like `"error_value"` into numeric columns. ⚠️
+* **Extreme Outliers:** Set unrealistic values (e.g., `shipping_distance_km = 99999`). 📈
+* **Logical Flaws:** Set `actual_delivery_date` earlier than the `order_date`. ⏳
+
+**📄 Output File:** `dataset_with_anomalies.xlsx`
+
+---
+
+### 🟦 4. Data Cleaning (`clean_anamolies.py`) 🧹
+
+After creating the issues, we applied a systematic recovery process:
+
+* **Deduplication:** Applied `drop_duplicates()` to remove redundant rows. ♻️
+* **Type Correction:** Converted `"error_value"` entries to `NaN` and restored numeric types. ⚙️
+* **Imputation:** * Used **Median** for numeric columns (resilient to outliers). 🔢
+* Used **Mode** for categorical labels. 🏷️
+
+
+* **Date Repair:** Removed logically impossible delivery dates. 🗓️
+* **Outlier Capping:** Applied **IQR-based capping** on distance and quantity fields. 📐
+* **Feature Engineering:** Calculated `delivery_days` (Actual Delivery - Order Date). 🏗️
+
+**📄 Output File:** `cleaned_dataset.xlsx`
+
+---
+
+### 🟦 5. Cleaning Validation Checklist 🏆
+
+| Task | Before Cleaning | After Cleaning | Status |
+| --- | --- | --- | --- |
+| **Duplicate Count** | > 0 | 0 | ✅ Fixed |
+| **Null Values** | Present | Handled | ✅ Fixed |
+| **DataType Errors** | Strings in Numerics | Clean Numeric | ✅ Fixed |
+| **Logical Dates** | Invalid Entries | Correct Logic | ✅ Fixed |
+| **Outliers** | Extreme Skews | Capped/Normal | ✅ Fixed |
+
+---
+
+### 🟦 6. Deliverables 📦
+
+* ✅ **Source Data:** `shipment_dataset_10000.xlsx`
+* ✅ **Corrupted Data:** `dataset_with_anomalies.xlsx`
+* ✅ **Pristine Data:** `cleaned_dataset.xlsx`
+* ✅ **Python Logic:** `introduce_anamolies.py` & `clean_anamolies.py`
+
+---
+
+### 🟦 7. Summary
+
+Milestone 1 is officially complete! The data is now fully sanitized and logically sound.
+
+**Next Step:** Would you like me to start outlining the **Milestone 2: Exploratory Data Analysis (EDA)** to look for correlations in this cleaned data?
