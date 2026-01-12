@@ -1,0 +1,18 @@
+# virtual environments
+venv/
+venv310/
+.venv/
+
+# python cache
+__pycache__/
+*.pyc
+
+# model files
+*.pkl
+
+# datasets
+*.csv
+*.xlsx
+
+# OS files
+.DS_Store
