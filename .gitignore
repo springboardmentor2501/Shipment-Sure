@@ -10,9 +10,12 @@ __pycache__/
 # model files
 *.pkl
 
-# datasets
+# data files
 *.csv
 *.xlsx
 
-# OS files
-.DS_Store
+# images
+*.png
+
+# streamlit
+.streamlit/
